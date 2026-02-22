@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void){
+    int lives = 5;
+    int choiceMax = 100;
+    int choice;
+    int guess;
+    int distanceFromGuess;
+
+    srand(time(NULL));
+    choice = (rand() % (choiceMax + 1));
+
+    puts("What number am I thinking of?");
+    printf("The number is between 0 and %d.\n", choiceMax);
+    
+    do {
+        printf("You have %d guesses\n", lives);
+        printf("Enter guess\n?> ");
+        scanf("%d", &guess);
+        distanceFromGuess = abs(guess - choice);
+        if(guess != choice){
+            printf("Sorry, my number is not %d.\n", guess);
+            
+            if(distanceFromGuess < 5){
+                puts("You're very hot! Have a bonus life!");
+                lives ++;            
+            } else if(distanceFromGuess < 10){
+                puts("You're quite warm...");
+                lives --;
+            } else {      
+                lives --;
+            }
+        }
+
+    } while (lives > 0 &&  guess != choice);
+
+    if(guess == choice){
+        printf("Well done! My number was %d!\n", choice);
+    } else {
+        printf("Bad luck! My number was %d!\n", choice);
+    }
+
+    puts("Until next time!");
+    
+
+}
