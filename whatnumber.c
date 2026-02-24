@@ -4,23 +4,23 @@
 
 int main(void){
     int lives = 5;
-    int choiceMax = 100;
-    int choice;
+    int maxRandomNumber = 100;
+    int randomNumber;
     int guess;
     int distanceFromGuess;
 
     srand(time(NULL));
-    choice = (rand() % (choiceMax + 1));
+    randomNumber = (rand() % (maxRandomNumber + 1));
 
     puts("What number am I thinking of?");
-    printf("The number is between 0 and %d.\n", choiceMax);
+    printf("The number is between 0 and %d.\n", maxRandomNumber);
     
     do {
         printf("You have %d guesses\n", lives);
         printf("Enter guess\n?> ");
         scanf("%d", &guess);
-        distanceFromGuess = abs(guess - choice);
-        if(guess != choice){
+        distanceFromGuess = abs(guess - randomNumber);
+        if(guess != randomNumber){
             printf("Sorry, my number is not %d.\n", guess);
             
             if(distanceFromGuess < 5){
@@ -34,12 +34,12 @@ int main(void){
             }
         }
 
-    } while (lives > 0 &&  guess != choice);
+    } while (lives > 0 &&  guess != randomNumber);
 
-    if(guess == choice){
-        printf("Well done! My number was %d!\n", choice);
+    if(guess == randomNumber){
+        printf("Well done! My number was %d!\n", randomNumber);
     } else {
-        printf("Bad luck! My number was %d!\n", choice);
+        printf("Bad luck! My number was %d!\n", randomNumber);
     }
 
     puts("Until next time!");
