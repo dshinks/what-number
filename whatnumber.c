@@ -7,7 +7,7 @@ int main(void){
     int maxRandomNumber = 100;
     int randomNumber;
     int guess;
-    int distanceFromGuess;
+    int distanceFromRandom;
 
     srand(time(NULL));
     randomNumber = (rand() % (maxRandomNumber + 1));
@@ -19,14 +19,14 @@ int main(void){
         printf("You have %d guesses\n", lives);
         printf("Enter guess\n?> ");
         scanf("%d", &guess);
-        distanceFromGuess = abs(guess - randomNumber);
+        distanceFromRandom = abs(guess - randomNumber);
         if(guess != randomNumber){
             printf("Sorry, my number is not %d.\n", guess);
             
-            if(distanceFromGuess < 5){
+            if(distanceFromRandom < 5){
                 puts("You're very hot! Have a bonus life!");
                 lives ++;            
-            } else if(distanceFromGuess < 10){
+            } else if(distanceFromRandom < 10){
                 puts("You're quite warm...");
                 lives --;
             } else {      
