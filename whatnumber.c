@@ -6,7 +6,7 @@
 
 int main(void){
     int lives = 5;
-    bool recievedBonusLife = false;
+    bool receivedBonusLife = false;
     int maxRandomNumber = 100;
     int randomNumber;
     int guess;
@@ -27,9 +27,9 @@ int main(void){
             printf("Sorry, my number is not %d.\n", guess);
             
             if(distanceFromRandom < 5){
-                if(recievedBonusLife == false) {
+                if(receivedBonusLife == false) {
                     puts("You're very hot! Have a bonus life!");
-                    recievedBonusLife = true;
+                    receivedBonusLife = true;
                     lives ++;            
                 } else {
                     puts("You're very hot!");
