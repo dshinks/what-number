@@ -22,10 +22,8 @@ int main(void){
         printf("You have %d guesses\n", lives);
         printf("Enter guess\n?> ");
         int validUserInput = scanf("%d", &guess);
-        if(validUserInput != 1) {
+        if(validUserInput != 1 || guess > 100) {
             printf("invalid input \n");
-            printf("You lost 2 lives \n");
-            lives = lives - 2;
             while(getchar() != '\n');
             continue;
         }
