@@ -21,7 +21,12 @@ int main(void){
     do {
         printf("You have %d guesses\n", lives);
         printf("Enter guess\n?> ");
-        scanf("%d", &guess);
+        int validUserInput = scanf("%d", &guess);
+        if(validUserInput != 1 || guess > maxRandomNumber) {
+            printf("invalid input \n");
+            while(getchar() != '\n');
+            continue;
+        }
         distanceFromRandom = abs(guess - randomNumber);
         if(guess != randomNumber){
             printf("Sorry, my number is not %d.\n", guess);
